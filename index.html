@@ -11,10 +11,49 @@
          <script src="map.js"></script>
   </head>
   <body>
-      <h1>Singapore</h1>
-      <input id="pac-input" class="controls" type="text" placeholder="Search...">
+      	<!-- location / venue / buttons row -->
+		<div class="row" id="userEntryRow">
+
+			<!-- location and venue div -->
+			<div class="col-md-12 text-center">
+
+				<!-- begin our form-->
+				<form class="form-inline">
+
+					<!-- first input is for the location -->
+		  			<div class="form-group">
+		    			<label for="location">Location: </label>
+		    			<input type="text" class="form-control" list="savedLocations" id="location" placeholder="Destination">
+		    			<datalist id="savedLocations"></datalist>
+		  			</div>
+
+					<!-- second input is for the venue type -->
+		  			<div class="form-group">
+	    				<label for="venue"> Venue: </label>
+		   				<select class="form-control" id="venue">
+		   					<option>Amusement Park</option>
+		   					<option>Art Gallery</option>
+		   					<option>Museum</option>
+		   					<option>Park</option>
+		   					<option>Zoo</option>
+						</select>
+	  				</div>
+
+					<!-- go button div -->
+					<button type="submit" class="btn btn-danger" id="goButton">GO!</button>
+					
+					<!-- reset button div -->
+					<button type="reset" class="btn btn-danger" id="resetButton">RESET!</button>
+
+				</form>
+
+			<!-- end of location and venue div and column -->
+			</div>
+
+		<!-- end of location and venue row -->
+		</div>
       <div id='map'>
-             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8DLmeKQFe73Gj-LQ1wfPFTjYHQmYgeZw&libraries=places&callback=initAutocomplete"
+             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8DLmeKQFe73Gj-LQ1wfPFTjYHQmYgeZw&libraries=places&callback=initMap"
          async defer></script>
     </div>
   </body>
