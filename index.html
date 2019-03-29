@@ -1,61 +1,58 @@
-<!doctype html>
-<html lang="en">
-  <head>
-      <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css" type="text/css" />
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
-         <script src="map.js"></script>
-  </head>
-  <body>
-      	<!-- location / venue / buttons row -->
-		<div class="row" id="userEntryRow">
+<!DOCTYPE html>
+<html>
 
-			<!-- location and venue div -->
-			<div class="col-md-12 text-center">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/lib/tailwind.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Points-of-Interest in Singapore</title>
+</head>
 
-				<!-- begin our form-->
-				<form class="form-inline">
+<body>
 
-					<!-- first input is for the location -->
-		  			<div class="form-group">
-		    			<label for="location">Location: </label>
-		    			<input type="text" id="location" placeholder="Destination">
-		  			</div>
+  <div>
+    <h2 class="bg-red-darkest header">My Favourite Points-Of-Interest In Singapore</h2>
+  </div>
 
-					<!-- second input is for the venue type -->
-		  			<div class="form-group">
-	    				<label for="venue"> Venue: </label>
-		   				<select class="form-control" id="venue">
-		   					<option>Amusement Park</option>
-		   					<option>Art Gallery</option>
-		   					<option>Museum</option>
-		   					<option>Park</option>
-		   					<option>Zoo</option>
-						</select>
-	  				</div>
+  <div class="row bg-red-light">
 
-					<!-- go button div -->
-					<button type="submit" class="btn btn-danger" id="goButton">GO!</button>
-					
-					<!-- reset button div -->
-					<button type="reset" class="btn btn-danger" id="resetButton">RESET!</button>
-
-				</form>
-
-			<!-- end of location and venue div and column -->
-			</div>
-
-		<!-- end of location and venue row -->
-		</div>
-      <div id='map'>
-             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8DLmeKQFe73Gj-LQ1wfPFTjYHQmYgeZw&libraries=places&callback=initMap"
-         async defer></script>
+    <div class="add-points-of-interest col-xs-12 col-s-6 col-m-6 col-l-6 col-xl-6 bg-red-light {">
+      <ul>
+        <li><label for="query">New:</label></li>
+        <li><input id="query" data-bind="textInput: queryText" /></li>
+        <li><select data-bind="options: availableCategories, value: queryCategory"></select></li>
+      </ul>
+      <button data-bind="click: addPointsOfInterest">Add</button>
     </div>
-  </body>
- 
-</html>
+
+    <div class="filter-points-of-interest col-xs-12 col-s-6 col-m-6 col-l-6 col-xl-6 bg-red-light {">
+      <ul>
+        <li><label for="filter">Filter:</label></li>
+        <li><input id="filter" data-bind="value: filterText, valueUpdate: 'afterkeydown'" /></li>
+        <li><select data-bind="options: availableCategories, value: filterCategory"></select></li>
+      </ul>
+    </div>
+
+    <div class="display-google-map col-xs-12 col-s-12 col-m-12 col-l-12 col-xl-12" id="beverleyMap">
+      <p>Ooops!</p>
+      <p>Looks like the satellite is down!</p>
+      <p>Refresh or try later!</p>
+    </div>
+
+    <div class="list-points-of-interest col-xs-12 col-s-12 col-m-12 col-l-12 col-xl-12 bg-grey-darker">
+      <ul data-bind="foreach: filteredPointsOfInterest">
+        <li data-bind="click: $root.onClickPointOfInterest">
+          <p data-bind="text: name"></p>
+        </li>
+      </ul>
+    </div>
+      <script src="js/lib/knockout.js"></script>
+      <script src="js/lib/jquery.min.js"></script>
+      <script src="js/utils/data.js"></script>
+      <script src="js/utils/places.js"></script>
+      <script src="js/main.js"></script>
+      <script defer async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1DP9mEFFDEeEOvTT2BxmizqgpN9a1R68&callback=run&libraries=places"></script>
     
+</body>
+</html>
