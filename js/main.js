@@ -3,12 +3,11 @@
   global loadMarkers
   global searchPointsOfInterest
   global changeMarkerIcon
-  global loadFlickrPhotos
-  global loadWikipediaExtracts
   global showMarker
   global hideMarker
   global PointOfInterest
   global Coords
+  
 */
 var pointsOfInterest = ko.observableArray();
 var availableCategories = ko.observableArray(["all"]);
@@ -34,13 +33,6 @@ function PointsOfInterestViewModel() {
     self.filterText = ko.observable();
     self.filterCategory = ko.observable("all");
 
-    self.wikipediaHeader = ko.observable("Wikipedia Extract");
-    self.wikipediaExtracts = ko.observableArray([]);
-
-    self.flickrHeader = ko.observable("Flickr Photos");
-    self.flickrError = ko.observable();
-    self.flickrPhotos = ko.observableArray([]);
-
     // Initialise an empty map with the center placed on Beverley
     initialiseBeverleyMap();
 
@@ -64,8 +56,6 @@ function PointsOfInterestViewModel() {
 
     self.onClickPointOfInterest = function (pointOfInterest) {
         changeMarkerIcon(pointOfInterest);
-        loadFlickrPhotos(pointOfInterest.name, self.flickrHeader, self.flickrError, self.flickrPhotos);
-        loadWikipediaExtracts(pointOfInterest.name, self.wikipediaHeader, self.wikipediaExtracts);
     };
 
     self.filteredPointsOfInterest = ko.computed(function () {
@@ -177,8 +167,5 @@ function run() {
     pointsOfInterestViewModel = new PointsOfInterestViewModel();
     
     ko.applyBindings(pointsOfInterestViewModel);
-
-    loadFlickrPhotos(null, pointsOfInterestViewModel.flickrHeader, pointsOfInterestViewModel.flickrError, pointsOfInterestViewModel.flickrPhotos);
-    loadWikipediaExtracts( null, pointsOfInterestViewModel.wikipediaHeader, pointsOfInterestViewModel.wikipediaExtracts );
 
 }

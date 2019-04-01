@@ -11,7 +11,7 @@ var beachflagIcon = 'https://developers.google.com/maps/documentation/javascript
 function searchPointsOfInterest(query, types) {
     // console.log("searchPointsOfInterest");
 
-    var poiQuery = query + "+beverley";
+    var poiQuery = query + "+singapore";
     var poiTypes = types;
 
     var request = {
@@ -138,10 +138,6 @@ function createMarker(place, image) {
             marker.setAnimation(google.maps.Animation.BOUNCE);
             bouncer = marker;
         }
-
-        /* Load Flickr photos for this markers location */
-        loadFlickrPhotos(place.name, pointsOfInterestViewModel.flickrHeader, pointsOfInterestViewModel.flickrError, pointsOfInterestViewModel.flickrPhotos);
-        loadWikipediaExtracts(place.name, pointsOfInterestViewModel.wikipediaHeader, pointsOfInterestViewModel.wikipediaExtracts );
 
     });
 
