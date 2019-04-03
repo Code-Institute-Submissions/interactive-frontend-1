@@ -47,8 +47,6 @@ function loadMarkers(defaultPlacesIds) {
     }
 
 }
-
-// Function that initialises an empty map with center on Beverley, UK.
 function initialiseBeverleyMap() {
 
     var beverleyLocation = new google.maps.LatLng(beverleyLatitude, beverleyLongitude);
