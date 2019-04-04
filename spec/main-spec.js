@@ -17,9 +17,21 @@ describe('Google Map', function(){
             // we expect map variable to have at least one children
             expect($('#map').children.length).toBeGreaterThanOrEqual(1);
         });
+        describe('Create marker', function(){
+        it('should be able to create marker', function(){
+            // loadFixtures('text-search-fixture.html');
+            let marker = createMarker({
+                geometry: {
+                    lat: 103,
+                    lng: 43
+                }
+            })
+            expect(marker).toBeDefined();
+            expect(marker).not.toBeNull();
+            
+        });
         
+        }) 
         
     });
-
-
 })
