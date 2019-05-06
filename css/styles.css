@@ -140,7 +140,7 @@ table {
 .display-google-map {
     min-height: 150px;
     min-width: 150px;
-    height: 50vmin;
+    height: 100vmin;
 }
 
 .list-points-of-interest {
