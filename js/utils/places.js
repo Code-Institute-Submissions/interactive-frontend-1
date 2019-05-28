@@ -1,5 +1,4 @@
-/* global google 
-   global updatePointsOfInterest
+/* global google, updatePointsOfInterest
 */
 var beverleyMap;
 var service;

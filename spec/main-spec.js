@@ -1,10 +1,4 @@
-/* global jasmine 
-   global beforeAll
-   global loadFixtures
-   global expect
-   global map
-   global $
-   global createMarker
+/* global jasmine, beforeAll, loadFixtures, expect, map, $, createMarker
 */
 describe('Google Map', function(){
     describe('Loading', function(){
