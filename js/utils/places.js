@@ -1,3 +1,6 @@
+/* global google 
+   global updatePointsOfInterest
+*/
 var beverleyMap;
 var service;
 var infowindow;
